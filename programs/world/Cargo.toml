@@ -1,0 +1,30 @@
+[package]
+name = "world"
+description = "Bolt World program"
+version = { workspace = true }
+authors = { workspace = true }
+repository = { workspace = true }
+homepage = { workspace = true }
+license = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "world"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+idl-build = ["anchor-lang/idl-build"]
+
+[dependencies]
+anchor-lang = { workspace = true }
+bolt-component = { workspace = true, cpi = true }
+bolt-helpers-world-apply = { workspace = true }
+bolt-system = { workspace = true, cpi = true }
+solana-security-txt = { workspace = true }
+tuple-conv = { workspace = true }
+
