@@ -25,7 +25,7 @@ pub const WORLD_PROGRAM: &str = "WorLD15A7CrDwLcLy4fRqtaTb9fbd8o8iqiEMUDse2n";
 
 #[derive(Debug, Subcommand)]
 pub enum BoltCommand {
-    #[clap(about = "Create a new component")]
+    #[clap(about = "Create a new components")]
     Component(ComponentCommand),
     #[clap(about = "Create a new system")]
     System(SystemCommand),
