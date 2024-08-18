@@ -1,10 +1,11 @@
 name: Run Bolt Tests
-
 on:
   push:
     branches:
       - main
   pull_request_target:
+    branches:
+      - main
 
 env:
   solana_version: v1.18.15
@@ -14,11 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          # Check out the code from the forked PR
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-      
       - uses: actions/cache@v4
         name: cache solana cli
         id: cache-solana
@@ -70,9 +66,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
       - name: Cache rust
         uses: Swatinem/rust-cache@v2
       - name: Run fmt
@@ -85,9 +78,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
       - name: Use Node ${{ matrix.node }}
         uses: actions/setup-node@v4
         with:
@@ -116,9 +106,6 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
 
       - name: Use Node ${{ matrix.node }}
         uses: actions/setup-node@v4
