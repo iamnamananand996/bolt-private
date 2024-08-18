@@ -27,7 +27,7 @@ pub const WORLD_PROGRAM: &str = "WorLD15A7CrDwLcLy4fRqtaTb9fbd8o8iqiEMUDse2n";
 pub enum BoltCommand {
     #[clap(about = "Create a new component")]
     Component(ComponentCommand),
-    #[clap(about = "Create a new system")]
+    #[clap(about = "Creates a new system")]
     System(SystemCommand),
     // Include all existing commands from anchor_cli::Command
     #[clap(flatten)]
